@@ -1,0 +1,144 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+        p, h3, ul {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+        li:hover {
+            transform: scale(1.05);
+            background: #e2e2e2;
+            
+        }
+        li.fav {
+            transition: 0.4s ease;
+            background: #ff9ed2;
+            color: white;
+        }
+        li.fav:hover {
+            transform: scale(1.05);
+            color: #fff;
+            background: #ff82c5;
+        }
+        .image {
+            height: 50px;
+        }
+        .favBooksTop {
+            height: 100px;
+            display: flex;
+        }
+        .titleAuthor {
+            display: flex;
+            flex-direction: column;
+        }
+        .filteredItems {
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 150px;
+        }
+        .buttonContainer {
+            display: flex;
+            justify-content: center;
+        }
+        button {
+            font-size: medium;
+            border-radius: 8px;
+            border: none;
+            background: #ff9ed2;
+            height: 40px;
+            color: white;
+            transition: 0.4s ease;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            transform: scale(1.05);
+            color: #fff;
+            background: #ff82c5;
+        }
+        h1 {
+            color: #ff9ed2;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Start Vue</h1>
+    <div id="app">
+        <div class="favBooksTop">
+            <li class="filteredItems" v-for="book in filteredBooks" @click="toggleFav(book)">
+                <img class="image" :src="book.img" :alt="book.author" >
+                <div class="titleAuthor">
+                    <p>{{book.title}}</p> 
+                    <p>{{book.author}}</p>
+                </div>
+            </li>
+        </div>
+        <!-- <a :href="url">VG</a> -->
+        <!-- <a v-bind:href="url">VG</a> -->
+        <div v-if="showBooks">
+            <!-- <p>{{ title }} - {{ author }} - {{ age }}</p> -->
+            <!-- <p>{{ books[0].title }} - {{ books[0].author }}</p> -->
+             <ul>
+                <li v-for="book in books" :class="{ fav: book.isFav }" @click="toggleFav(book)">
+                    <img :src="book.img" :alt="book.author" >
+                    <h3>{{book.title}} by {{book.author}}</h3>
+                    <!-- <button @click="book.isFav = !book.isFav">Favorite</button> -->
+                </li>
+             </ul>
+        </div>
+        
+        <div class="buttonContainer">
+            <!-- <button @click="age++">Increase</button>
+            <button @click="age--">Decrease</button> -->
+            <!-- <div @click="changeTitle">Next</div> -->
+            <!-- <input type="text" v-model="inputTitle"> -->
+            <!-- <div @click="changeTitle('Hello')">Endre tittel</div> -->
+            <!-- <button @click="changeTitle()">Endre tittel</button> -->
+            
+            <button @click="changeShowBooks()">
+                <span v-if="showBooks">Hide Books</span>
+                <!-- <span v-if="!showBooks">Show Books</span> -->
+                <span v-else>Show Books</span>
+            </button>
+            <!-- <div v-show="showBooks">currently showing books</div> //css remove -->
+        </div>
+        <br>
+        <!-- mouse events -->
+        <!-- <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMouseMove">x: {{ x }} - y:{{ y }}</div> -->
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
