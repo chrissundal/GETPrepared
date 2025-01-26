@@ -1,0 +1,24 @@
+﻿body {
+    margin: 0;
+}
+p {
+    font-style: italic;
+}
+button {
+    border: none;
+    outline: none;
+    background: #c047e2;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.4s ease;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    margin: 5px;
+}
+button:hover {
+    transform: scale(1.05);
+    background: #9e3bba;
+}
