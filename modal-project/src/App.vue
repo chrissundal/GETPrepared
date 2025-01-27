@@ -108,9 +108,11 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
 }
-
+#app {
+  height: 100vh;
+  
+}
 .scamtext {
   border: none;
   width: 600px
