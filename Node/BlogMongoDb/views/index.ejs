@@ -3,7 +3,6 @@
 
 <%- include('./partials/nav.ejs')%>
 <div class="blogs content">
-    <h2>All Blogs</h2>
     <% if(blogs.length > 0) { %>
     <% blogs.forEach(blog => { %>
         <div class="blogContainer">
@@ -15,7 +14,7 @@
         </div>
     <% }) %>
     <% } else { %>
-        <p>There are no blogs to display</p>
+        <p>Her var det ingenting</p>
     <% } %>
 </div>
 <%- include('./partials/footer.ejs')%>
