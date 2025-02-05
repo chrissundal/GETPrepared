@@ -1,0 +1,16 @@
+﻿<%- include('./partials/head.ejs')%>
+<body>
+
+<%- include('./partials/nav.ejs')%>
+<div class="blogs content">
+    <% if(blog) { %>
+    <h2 class="titleSingle"><%=blog.title%></h2>
+        <p class="bodySingle"><%=blog.body%></p>
+        <p class="timestampSingle"><%=blog.createdAt.toLocaleString()%></p>
+    <% } else { %>
+        <p>There are no blog to display</p>
+    <% } %>
+</div>
+<%- include('./partials/footer.ejs')%>
+</body>
+</html>

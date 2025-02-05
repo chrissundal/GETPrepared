@@ -6,13 +6,15 @@
         public int Points { get; private set; }
         public bool IsDone { get; private set; }
         public bool Finished { get; private set; }
+        public DateTime ResetDate { get; private set; }
 
-        public Person(string name, int points, bool isDone, bool finished)
+        public Person(string name, int points, bool isDone, bool finished, DateTime resetDate)
         {
             Name = name;
             Points = points;
             IsDone = isDone;
             Finished = finished;
+            ResetDate = resetDate;
         }
 
         public void NotPressed()
@@ -39,6 +41,7 @@
         {
             Points = 0;
             IsDone = false;
+            Finished = false;
         }
 
         public void SetNotFinished()
@@ -50,5 +53,10 @@
         {
             Finished = true;
         }
+
+        public void SetDate(DateTime today)
+        {
+            ResetDate = today;
+            }
     }
 }

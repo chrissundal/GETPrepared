@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WalkandWin"
         mc:Ignorable="d"
-        Title="Walk and Win" Height="450" Width="800" Background="#f0f0f0">
+        Title="Walk and Win" Height="450" Width="800" Background="#f0f0f0"
+        Icon="pack://application:,,,/Icons/walk.png">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="FontSize" Value="16"/>
@@ -27,17 +28,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Name="Message" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0"/>
+        <TextBlock Name="Message" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Margin="10" FontWeight="Bold"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
-            <TextBlock Name="CountdownText" HorizontalAlignment="Center"/>
-            <TextBlock Name="DueText" HorizontalAlignment="Center" Foreground="Crimson" Visibility="Collapsed"/>
+            <TextBlock Name="CountdownText" HorizontalAlignment="Center" FontSize="48" FontWeight="Bold" Margin="20"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Name="DoneButton" Content="Done" Width="100" Height="50" Click="DoneButton_Click" Visibility="Collapsed"/>
-                <Button Name="ResetButton" Content="Reset" Width="100" Height="50" Click="ResetButton_Click"/>
             </StackPanel>
         </StackPanel>
-        <TextBlock Name="PointsText" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Margin="50"/>
+        <TextBlock Name="PointsText" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Margin="50" FontWeight="Bold"/>
         <TextBlock Name="StatusMessage" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3"/>
     </Grid>
 </Window>
-
