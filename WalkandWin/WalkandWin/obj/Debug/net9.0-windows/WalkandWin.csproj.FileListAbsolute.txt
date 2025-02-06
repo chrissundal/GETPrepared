@@ -22,3 +22,5 @@ C:\Users\chris\OneDrive\Documents\GitHub\GETPrepared\WalkandWin\WalkandWin\obj\D
 C:\Users\chris\OneDrive\Documents\GitHub\GETPrepared\WalkandWin\WalkandWin\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
 C:\Users\chris\OneDrive\Documents\GitHub\GETPrepared\WalkandWin\WalkandWin\obj\Debug\net9.0-windows\WalkandWin.csproj.AssemblyReference.cache
 C:\Users\chris\OneDrive\Documents\GitHub\GETPrepared\WalkandWin\WalkandWin\obj\Debug\net9.0-windows\WalkandWin.csproj.Up2Date
+C:\Users\chris\OneDrive\Documents\GitHub\GETPrepared\WalkandWin\WalkandWin\obj\Debug\net9.0-windows\SettingsWindow.baml
+C:\Users\chris\OneDrive\Documents\GitHub\GETPrepared\WalkandWin\WalkandWin\obj\Debug\net9.0-windows\SettingsWindow.g.cs

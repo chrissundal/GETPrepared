@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WalkandWin"
         mc:Ignorable="d"
-        Title="Walk and Win" Height="450" Width="800" Background="#f0f0f0"
+        Title="Walk and Win" Height="400" Width="600" Background="#f0f0f0"
         Icon="pack://application:,,,/Icons/walk.png">
     <Window.Resources>
         <Style TargetType="Button">
@@ -28,6 +27,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Image Source="/bin/Debug/net9.0-windows/Images/gear.png" Width="30" Height="30"
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Margin="10" MouseLeftButtonUp="GearIcon_Click"/>
         <TextBlock Name="Message" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Margin="10" FontWeight="Bold"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
             <TextBlock Name="CountdownText" HorizontalAlignment="Center" FontSize="48" FontWeight="Bold" Margin="20"/>

@@ -7,6 +7,9 @@
         public bool IsDone { get; private set; }
         public bool Finished { get; private set; }
         public DateTime ResetDate { get; private set; }
+        public DateTime StartTime { get; private set; }
+        public DateTime DueTime { get; private set; }
+        public DateTime EndTime { get; private set; }
 
         public Person(string name, int points, bool isDone, bool finished, DateTime resetDate)
         {
@@ -15,6 +18,9 @@
             IsDone = isDone;
             Finished = finished;
             ResetDate = resetDate;
+            StartTime = DateTime.Today.AddHours(11).AddMinutes(30);
+            DueTime = DateTime.Today.AddHours(12).AddMinutes(15);
+            EndTime = DateTime.Today.AddHours(12).AddMinutes(15);
         }
 
         public void NotPressed()
@@ -57,6 +63,36 @@
         public void SetDate(DateTime today)
         {
             ResetDate = today;
+        }
+        public void UpdateStartTime(string timeString)
+        {
+            var newStartTime = DateTime.Parse(timeString);
+            if (StartTime != newStartTime)
+            {
+                StartTime = newStartTime;
             }
+        }
+
+        public void UpdateDueTime(string timeString)
+        {
+            var newDueTime = DateTime.Parse(timeString);
+            if (DueTime != newDueTime)
+            {
+                DueTime = newDueTime;
+            }
+        }
+
+        public void UpdateEndTime(string timeString)
+        {
+            var newEndTime = DateTime.Parse(timeString);
+            if (EndTime != newEndTime)
+            {
+                EndTime = newEndTime;
+            }
+        }
+        public void ResetDueTime()
+        {
+            DueTime = DueTime.AddDays(1);
+        }
     }
 }

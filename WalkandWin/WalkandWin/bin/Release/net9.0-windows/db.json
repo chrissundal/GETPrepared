@@ -1,1 +1,1 @@
-[{"Name":"Chris","Points":10,"IsDone":true,"Finished":false,"ResetDate":"2025-02-06T00:00:00+01:00"}]
+[{"Name":"Chris","Points":40,"IsDone":false,"Finished":true,"ResetDate":"2025-02-06T00:00:00+01:00","StartTime":"2025-02-06T11:30:00+01:00","DueTime":"2025-02-06T12:15:00+01:00","EndTime":"2025-02-06T12:15:00+01:00"}]

@@ -1,0 +1,17 @@
+﻿<Window x:Class="WalkandWin.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Innstillinger" Height="300" Width="400"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="Start Tid:" Margin="0 0 0 10"/>
+            <TextBox Name="StartTimeTextBox" Margin="0 0 0 20"/>
+            <TextBlock Text="Slutt Tid:" Margin="0 0 0 10"/>
+            <TextBox Name="EndTimeTextBox" Margin="0 0 0 20"/>
+            <TextBlock Text="Tidsfrist:" Margin="0 0 0 10"/>
+            <TextBox Name="DueTimeTextBox" Margin="0 0 0 20"/>
+            <Button Content="Lagre" Click="SaveButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

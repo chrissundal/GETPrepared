@@ -14,10 +14,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="bin\Debug\net9.0-windows\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Include="bin\Debug\net9.0-windows\Icons\walk.gif" />
       <None Include="bin\Debug\net9.0-windows\Icons\walk.png" />
     </ItemGroup>
@@ -25,6 +21,14 @@
     <ItemGroup>
       <None Remove="Icons\walk.png" />
       <Resource Include="Icons\walk.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="bin\Debug\net9.0-windows\Images\gear.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Images\" />
     </ItemGroup>
 
 </Project>

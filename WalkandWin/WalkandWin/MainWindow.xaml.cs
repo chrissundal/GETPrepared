@@ -1,30 +1,46 @@
 ﻿using System.IO;
 using System.Text.Json;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace WalkandWin
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         private DispatcherTimer _timer;
-        private DateTime _dueTime;
         private List<Person> _users;
         private Person _currentUser;
-
+        private string[] _quotes;
+        private Random _random;
         public MainWindow()
         {
             InitializeComponent();
+            _random = new Random();
+            _quotes = [
+                "Ny dag, nye muligheter!",
+                "Grip dagen med begge hender!",
+                "Hver dag er en ny sjanse til å skinne.",
+                "Alt er mulig for den som tror.",
+                "La i dag være starten på noe stort.",
+                "Hver dag er en ny mulighet til å gjøre noe fantastisk.",
+                "Fyll dagen med glede og optimisme.",
+                "Skap dine egne solskinnsdager.",
+                "Hver dag er en gave, bruk den klokt.",
+                "La i dag være en dag du vil huske.",
+                "Ditt smil kan lyse opp verden."
+            ];
             _users = LoadFromFile();
             _currentUser = _users.Find(user => user.Name == "Chris");
             if (_currentUser == null)
             {
-                _currentUser = new Person("Chris", 0, false,false,new DateTime());
+                _currentUser = new Person("Chris", 0, false,true,DateTime.Today);
                 _users.Add(_currentUser);
+                SaveToFile();
+                StatusMessage.Text = "Bruker opprettet";
             }
             
-            _dueTime = DateTime.Today.AddHours(12).AddMinutes(15);
             if (_currentUser.ResetDate != DateTime.Today)
             {
                 _currentUser.NotPressed();
@@ -33,7 +49,7 @@ namespace WalkandWin
                 SaveToFile();
                 StatusMessage.Text = "Ny dag lagt til";
             }
-            Message.Text = "Ny dag, nye muligheter!";
+            Message.Text = _quotes[_random.Next(_quotes.Length -1)];
             StartTimer();
         }
 
@@ -47,7 +63,7 @@ namespace WalkandWin
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            var remainingTime = _dueTime - DateTime.Now;
+            var remainingTime = _currentUser.DueTime - DateTime.Now;
             CountdownText.Text = remainingTime.ToString(@"hh\:mm\:ss");
             PointsText.Text = $"Poeng: {_currentUser.Points}";
             if (remainingTime.TotalMinutes <= 30)
@@ -59,17 +75,16 @@ namespace WalkandWin
                 CountdownText.Foreground = Brushes.Black;
             }
 
-            if (DateTime.Now >= DateTime.Today.AddHours(11).AddMinutes(30) &&
-                DateTime.Now <= DateTime.Today.AddHours(12).AddMinutes(15))
+            if (DateTime.Now >= _currentUser.StartTime &&
+                DateTime.Now <= _currentUser.EndTime)
             {
                 DoneButton.Visibility = _currentUser.IsDone ? Visibility.Collapsed : Visibility.Visible;
             }
             else
             {
                 DoneButton.Visibility = Visibility.Collapsed;
-                Message.Text = "Ny dag, nye muligheter!";
             }
-            if (DateTime.Now >= _dueTime)
+            if (DateTime.Now >= _currentUser.DueTime)
             {
                 if (!_currentUser.IsDone && !_currentUser.Finished)
                 {
@@ -78,7 +93,7 @@ namespace WalkandWin
                     _currentUser.SetFinished();
                     SaveToFile();
                 }
-                _dueTime = DateTime.Today.AddDays(1).AddHours(12).AddMinutes(15);
+                _currentUser.ResetDueTime();
             }
         }
 
@@ -90,7 +105,13 @@ namespace WalkandWin
             DoneButton.Visibility = Visibility.Collapsed;
             SaveToFile();
         }
-        
+        private void GearIcon_Click(object sender, MouseButtonEventArgs e)
+        {
+            var settingsWindow = new SettingsWindow(_currentUser) { Owner = this };
+            settingsWindow.ShowDialog();
+            SaveToFile();
+        }
+
         private List<Person> LoadFromFile()
         {
             const string filePath = "db.json";
@@ -100,7 +121,7 @@ namespace WalkandWin
                 {
                     var json = File.ReadAllText(filePath);
                     var users = JsonSerializer.Deserialize<List<Person>>(json);
-                    StatusMessage.Text = "Brukere lastet inn";
+                    StatusMessage.Text = $"Bruker er lastet inn";
                     return users;
                 }
                 else
