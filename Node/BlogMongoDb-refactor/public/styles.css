@@ -1,0 +1,226 @@
+﻿
+body {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-image: url("mario.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
+nav .site-title p{
+    font-family: "Glossy Sheen Outline";
+    color: #ffcc00;
+    margin-top: 0;
+}
+nav .site-title h1{
+    font-family: "Glossy Sheen Outline";
+    font-size: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    font-size: 30px;
+    font-family: "Glossy Sheen Outline";
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+.content {
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.about h2, .about h3, .about p {
+    margin-bottom: 15px;
+}
+
+
+.singlePost {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.singlePost .titleSingle {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "Glossy Sheen Outline";
+}
+
+.singlePost .bodySingle {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.singlePost .timestampSingle {
+    font-size: 14px;
+    color: gray;
+}
+
+
+.create-blog form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.create-blog input, .create-blog textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: 'Roboto', sans-serif;
+}
+
+.create-blog input:focus, .create-blog textarea:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 5px #ffcc00;
+    outline: none;
+}
+
+.create-blog button {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0 0 0;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: "Glossy Sheen Outline";
+    font-weight: bold;
+    font-size: large;
+}
+
+.create-blog button:hover {
+    background-color: #ffcc00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.blogContainer {
+    max-width: 1200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.blogContainer .single {
+    background-color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    color: white;
+}
+
+.blogContainer .single:hover {
+    color: #ffcc00;
+}
+
+.blogContainer .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: "Glossy Sheen Outline";
+}
+
+.blogContainer .snippet {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.blogContainer .timestamp {
+    font-style: italic;
+    font-size: 14px;
+    color: gray;
+    text-align: center;
+}
+footer {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+.timestampSingle {
+    font-style: italic;
+    font-size: smaller;
+    text-align: center;
+    color: #777;
+    margin-top: 10px;
+}
+.about {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+.delete {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+.delete:hover {
+    transform: scale(1.05);
+}
+.not-found {
+    text-align: center;
+    font-family: "Glossy Sheen Outline";
+    font-size: xx-large;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}

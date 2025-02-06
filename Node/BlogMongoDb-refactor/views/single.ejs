@@ -1,0 +1,26 @@
+﻿<%- include('./partials/head.ejs')%>
+<body>
+
+<%- include('./partials/nav.ejs')%>
+<div class="singlePost">
+    <% if(blog) { %>
+    <h2 class="titleSingle"><%=blog.title%></h2>
+    <p class="bodySingle"><%=blog.body%></p>
+    <p class="timestampSingle"><%=blog.createdAt.toLocaleString()%></p>
+    <img src="/trash.png" alt="delete" height="40px" class="delete" onclick="deletePost('<%=blog._id%>')">
+    <% } else { %>
+        <p>There are no blog to display</p>
+    <% } %>
+</div>
+<%- include('./partials/footer.ejs')%>
+<script>
+    function deletePost(id) {
+        fetch(`/blogs/${id}`, {method: 'DELETE'})
+        .then((response) => response.json())
+        .then((data) => window.location.href = data.redirect)
+        .catch(error => console.error('Error:', error));
+    }
+
+</script>
+</body>
+</html>

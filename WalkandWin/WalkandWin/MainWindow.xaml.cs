@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Media;
@@ -25,7 +23,7 @@ namespace WalkandWin
                 _currentUser = new Person("Chris", 0, false,false,new DateTime());
                 _users.Add(_currentUser);
             }
-            PointsText.Text = $"Poeng: {_currentUser.Points}";
+            
             _dueTime = DateTime.Today.AddHours(12).AddMinutes(15);
             if (_currentUser.ResetDate != DateTime.Today)
             {
@@ -51,7 +49,7 @@ namespace WalkandWin
         {
             var remainingTime = _dueTime - DateTime.Now;
             CountdownText.Text = remainingTime.ToString(@"hh\:mm\:ss");
-
+            PointsText.Text = $"Poeng: {_currentUser.Points}";
             if (remainingTime.TotalMinutes <= 30)
             {
                 CountdownText.Foreground = Brushes.Red;

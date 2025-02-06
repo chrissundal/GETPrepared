@@ -1,0 +1,14 @@
+﻿<%- include('./partials/head.ejs')%>
+<body>
+<%- include('./partials/nav.ejs')%>
+<div class="create-blog content">
+    <form action="/blogs" method="POST">
+        <input type="text" placeholder="Skriv inn tittel..." name="title" required>
+        <input type="text" placeholder="Skriv en kort intro..." name="snippet" required>
+        <textarea name="body" placeholder="Skriv blogginnlegg..." required></textarea>
+        <button>Submit</button>
+    </form>
+</div>
+<%- include('./partials/footer.ejs')%>
+</body>
+</html>

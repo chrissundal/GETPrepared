@@ -1,0 +1,22 @@
+﻿<%- include('./partials/head.ejs')%>
+<body>
+
+<%- include('./partials/nav.ejs')%>
+<div class="blogs content">
+    <% if(blogs.length > 0) { %>
+    <% blogs.forEach(blog => { %>
+        <div class="blogContainer">
+            <a class="single" href="/blogs/<%=blog._id%>">
+            <h3 class="title"><%=blog.title%></h3>
+            <p class="snippet"><%=blog.snippet%></p>
+            <p class="timestamp"><%=blog.createdAt.toLocaleString()%></p>
+            </a>
+        </div>
+    <% }) %>
+    <% } else { %>
+        <p>Her var det ingenting</p>
+    <% } %>
+</div>
+<%- include('./partials/footer.ejs')%>
+</body>
+</html>
