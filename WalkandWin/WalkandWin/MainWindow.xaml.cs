@@ -12,19 +12,18 @@ namespace WalkandWin
         private DispatcherTimer _timer;
         private List<Person> _users;
         private Person _currentUser;
-        private string[] _quotes;
-        private Random _random;
+
         public MainWindow()
         {
             InitializeComponent();
-            _random = new Random();
-            _quotes = [
+            var random = new Random();
+            string[] quotes = [
                 "Ny dag, nye muligheter!",
                 "Grip dagen med begge hender!",
                 "Hver dag er en ny sjanse til å skinne.",
                 "Alt er mulig for den som tror.",
                 "La i dag være starten på noe stort.",
-                "Hver dag er en ny mulighet til å gjøre noe fantastisk.",
+                "Ny mulighet til å gjøre noe fantastisk.",
                 "Fyll dagen med glede og optimisme.",
                 "Skap dine egne solskinnsdager.",
                 "Hver dag er en gave, bruk den klokt.",
@@ -32,10 +31,10 @@ namespace WalkandWin
                 "Ditt smil kan lyse opp verden."
             ];
             _users = LoadFromFile();
-            _currentUser = _users.Find(user => user.Name == "Chris");
+            _currentUser = _users.Find(user => user.Name == "Chris")!;
             if (_currentUser == null)
             {
-                _currentUser = new Person("Chris", 0, false,true,DateTime.Today);
+                _currentUser = new Person("Chris", 0, false,true);
                 _users.Add(_currentUser);
                 SaveToFile();
                 StatusMessage.Text = "Bruker opprettet";
@@ -44,12 +43,12 @@ namespace WalkandWin
             if (_currentUser.ResetDate != DateTime.Today)
             {
                 _currentUser.NotPressed();
-                _currentUser.SetNotFinished();
+                _currentUser.SetNotNewUser();
                 _currentUser.SetDate(DateTime.Today);
                 SaveToFile();
                 StatusMessage.Text = "Ny dag lagt til";
             }
-            Message.Text = _quotes[_random.Next(_quotes.Length -1)];
+            Message.Text = quotes[random.Next(quotes.Length -1)];
             StartTimer();
         }
 
@@ -57,7 +56,7 @@ namespace WalkandWin
         {
             _timer = new DispatcherTimer();
             _timer.Interval = TimeSpan.FromSeconds(1);
-            _timer.Tick += Timer_Tick;
+            _timer.Tick += Timer_Tick!;
             _timer.Start();
         }
 
@@ -66,14 +65,7 @@ namespace WalkandWin
             var remainingTime = _currentUser.DueTime - DateTime.Now;
             CountdownText.Text = remainingTime.ToString(@"hh\:mm\:ss");
             PointsText.Text = $"Poeng: {_currentUser.Points}";
-            if (remainingTime.TotalMinutes <= 30)
-            {
-                CountdownText.Foreground = Brushes.Red;
-            }
-            else
-            {
-                CountdownText.Foreground = Brushes.Black;
-            }
+            CountdownText.Foreground = remainingTime.TotalMinutes <= 30 ? Brushes.Red : Brushes.Black;
 
             if (DateTime.Now >= _currentUser.StartTime &&
                 DateTime.Now <= _currentUser.EndTime)
@@ -86,11 +78,11 @@ namespace WalkandWin
             }
             if (DateTime.Now >= _currentUser.DueTime)
             {
-                if (!_currentUser.IsDone && !_currentUser.Finished)
+                if (!_currentUser.IsDone && !_currentUser.NewUser)
                 {
                     _currentUser.MinusPoints();
                     Message.Text = "Oouf kanskje i morgen!";
-                    _currentUser.SetFinished();
+                    _currentUser.PressedDone();
                     SaveToFile();
                 }
                 _currentUser.ResetDueTime();
@@ -114,36 +106,30 @@ namespace WalkandWin
 
         private List<Person> LoadFromFile()
         {
-            const string filePath = "db.json";
+            var users = new List<Person>();
             try
             {
-                if (File.Exists(filePath))
+                if (File.Exists("db.json"))
                 {
-                    var json = File.ReadAllText(filePath);
-                    var users = JsonSerializer.Deserialize<List<Person>>(json);
-                    StatusMessage.Text = $"Bruker er lastet inn";
-                    return users;
-                }
-                else
-                {
-                    return [];
+                    var json = File.ReadAllText("db.json");
+                    users = JsonSerializer.Deserialize<List<Person>>(json) ?? [];
+                    StatusMessage.Text = "Bruker er lastet inn";
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Feil ved lasting av brukere: {ex.Message}");
-                return [];
             }
+            return users;
         }
 
         private void SaveToFile()
         {
-            const string filePath = "db.json";
             try
             {
                 var json = JsonSerializer.Serialize(_users);
                 StatusMessage.Text = "Bruker lagret";
-                File.WriteAllText(filePath, json);
+                File.WriteAllText("db.json", json);
             }
             catch (Exception ex)
             {

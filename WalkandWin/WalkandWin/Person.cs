@@ -5,19 +5,19 @@
         public string Name { get; private set; }
         public int Points { get; private set; }
         public bool IsDone { get; private set; }
-        public bool Finished { get; private set; }
+        public bool NewUser { get; private set; }
         public DateTime ResetDate { get; private set; }
         public DateTime StartTime { get; private set; }
         public DateTime DueTime { get; private set; }
         public DateTime EndTime { get; private set; }
 
-        public Person(string name, int points, bool isDone, bool finished, DateTime resetDate)
+        public Person(string name, int points, bool isDone, bool newUser)
         {
             Name = name;
             Points = points;
             IsDone = isDone;
-            Finished = finished;
-            ResetDate = resetDate;
+            NewUser = newUser;
+            ResetDate = DateTime.Today;
             StartTime = DateTime.Today.AddHours(11).AddMinutes(30);
             DueTime = DateTime.Today.AddHours(12).AddMinutes(15);
             EndTime = DateTime.Today.AddHours(12).AddMinutes(15);
@@ -43,23 +43,11 @@
             IsDone = true;
         }
 
-        public void Reset()
+        public void SetNotNewUser()
         {
-            Points = 0;
-            IsDone = false;
-            Finished = false;
+            NewUser = false;
         }
-
-        public void SetNotFinished()
-        {
-            Finished = false;
-        }
-
-        public void SetFinished()
-        {
-            Finished = true;
-        }
-
+        
         public void SetDate(DateTime today)
         {
             ResetDate = today;
