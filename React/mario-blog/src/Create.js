@@ -20,6 +20,7 @@ const Create = () => {
 			.catch((err) => {
 				console.log("Error:", err);
 			});
+
 	};
 
 	return (

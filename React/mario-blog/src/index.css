@@ -104,6 +104,12 @@ button {
     color: white;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    transition: all .2s ease-in-out;
+}
+button:hover {
+    background-color: #2266c4;
+    transform: scale(1.05);
 }
 .cycle-container {
     display: flex;
@@ -141,4 +147,11 @@ button {
     border: 1px solid #f2f2f2;
     width: 80vw;
     max-width: 500px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+}
+select {
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #f2f2f2;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
 }

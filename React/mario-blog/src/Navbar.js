@@ -9,7 +9,7 @@ const Navbar = () => {
 					Home
 				</NavLink>
 				<NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>
-					About
+					About Mario
 				</NavLink>
 				<NavLink to="/create" className={({ isActive }) => (isActive ? 'active' : '')}>
 					New blog

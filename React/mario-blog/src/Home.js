@@ -20,10 +20,10 @@ const Home = () => {
 		// const newBlogs = blogs.filter(blog => blog.id !== id)
 		// setBlogs(newBlogs)
 		//setBlogs(oldBlogs => oldBlogs.filter(blog => blog.id !== id))
-		const response = await axios.delete(`http://localhost:8000/blogs/${String(id)}`)
+		await axios.delete(`http://localhost:8000/blogs/${String(id)}`)
 		fetchBlogs();
 	}
-
+	
 	const fetchBlogs = () => {
 		axios.get("http://localhost:8000/blogs")
 			.then(response => {
