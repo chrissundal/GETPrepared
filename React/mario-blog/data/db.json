@@ -4,43 +4,65 @@
       "title": "It's-a Me, Bloggio! Adventures in the Mushroom Kingdom",
       "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, animi consectetur ea eius iure laborum non voluptatem. Aliquid aspernatur assumenda at consectetur corporis debitis dolor eius eum fugit id impedit ipsum maiores, necessitatibus nihil nisi non odio optio pariatur placeat quibusdam rem sit tempora tenetur unde velit vero voluptatem voluptates. Alias, assumenda dolorum enim eos harum incidunt laboriosam, minima minus, non quaerat recusandae rem unde? Ab aliquid animi aperiam asperiores delectus distinctio, dolorum ea error excepturi explicabo fugiat id, ipsam laborum mollitia, nulla placeat velit. Alias aspernatur consectetur consequuntur cumque error expedita facilis illum natus officia, omnis, quos, rerum vero.",
       "author": "Mario",
-      "id": "1"
+      "id": "1",
+      "date": "2025-03-10T12:51:24.276Z"
     },
     {
       "title": "Why Mario is the Real Boss of Boss Battles",
       "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, animi consectetur ea eius iure laborum non voluptatem. Aliquid aspernatur assumenda at consectetur corporis debitis dolor eius eum fugit id impedit ipsum maiores, necessitatibus nihil nisi non odio optio pariatur placeat quibusdam rem sit tempora tenetur unde velit vero voluptatem voluptates. Alias, assumenda dolorum enim eos harum incidunt laboriosam, minima minus, non quaerat recusandae rem unde? Ab aliquid animi aperiam asperiores delectus distinctio, dolorum ea error excepturi explicabo fugiat id, ipsam laborum mollitia, nulla placeat velit. Alias aspernatur consectetur consequuntur cumque error expedita facilis illum natus officia, omnis, quos, rerum vero.",
       "author": "Mario",
-      "id": "2"
+      "id": "2",
+      "date": "2025-03-12T12:51:24.276Z"
     },
     {
       "title": "From Pipes to Palaces: The Plumbing Secrets of Super Mario",
       "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, animi consectetur ea eius iure laborum non voluptatem. Aliquid aspernatur assumenda at consectetur corporis debitis dolor eius eum fugit id impedit ipsum maiores, necessitatibus nihil nisi non odio optio pariatur placeat quibusdam rem sit tempora tenetur unde velit vero voluptatem voluptates. Alias, assumenda dolorum enim eos harum incidunt laboriosam, minima minus, non quaerat recusandae rem unde? Ab aliquid animi aperiam asperiores delectus distinctio, dolorum ea error excepturi explicabo fugiat id, ipsam laborum mollitia, nulla placeat velit. Alias aspernatur consectetur consequuntur cumque error expedita facilis illum natus officia, omnis, quos, rerum vero.",
       "author": "Peach",
-      "id": "3"
+      "id": "3",
+      "date": "2025-03-14T12:51:24.276Z"
     },
     {
       "title": "Luigi's Shadow: Living with a Superstar Brother",
       "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, animi consectetur ea eius iure laborum non voluptatem. Aliquid aspernatur assumenda at consectetur corporis debitis dolor eius eum fugit id impedit ipsum maiores, necessitatibus nihil nisi non odio optio pariatur placeat quibusdam rem sit tempora tenetur unde velit vero voluptatem voluptates. Alias, assumenda dolorum enim eos harum incidunt laboriosam, minima minus, non quaerat recusandae rem unde? Ab aliquid animi aperiam asperiores delectus distinctio, dolorum ea error excepturi explicabo fugiat id, ipsam laborum mollitia, nulla placeat velit. Alias aspernatur consectetur consequuntur cumque error expedita facilis illum natus officia, omnis, quos, rerum vero.",
       "author": "Mario",
-      "id": "4"
+      "id": "4",
+      "date": "2025-03-10T12:51:24.276Z"
     },
     {
       "title": "Bowser’s Guide to Getting Over a Princess Obsession",
       "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, animi consectetur ea eius iure laborum non voluptatem. Aliquid aspernatur assumenda at consectetur corporis debitis dolor eius eum fugit id impedit ipsum maiores, necessitatibus nihil nisi non odio optio pariatur placeat quibusdam rem sit tempora tenetur unde velit vero voluptatem voluptates. Alias, assumenda dolorum enim eos harum incidunt laboriosam, minima minus, non quaerat recusandae rem unde? Ab aliquid animi aperiam asperiores delectus distinctio, dolorum ea error excepturi explicabo fugiat id, ipsam laborum mollitia, nulla placeat velit. Alias aspernatur consectetur consequuntur cumque error expedita facilis illum natus officia, omnis, quos, rerum vero.",
       "author": "Bowser",
-      "id": "5"
+      "id": "5",
+      "date": "2025-03-12T12:51:24.276Z"
     },
     {
       "title": "Power-Ups Ranked: How Invincible is Too Invincible?",
       "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, animi consectetur ea eius iure laborum non voluptatem. Aliquid aspernatur assumenda at consectetur corporis debitis dolor eius eum fugit id impedit ipsum maiores, necessitatibus nihil nisi non odio optio pariatur placeat quibusdam rem sit tempora tenetur unde velit vero voluptatem voluptates. Alias, assumenda dolorum enim eos harum incidunt laboriosam, minima minus, non quaerat recusandae rem unde? Ab aliquid animi aperiam asperiores delectus distinctio, dolorum ea error excepturi explicabo fugiat id, ipsam laborum mollitia, nulla placeat velit. Alias aspernatur consectetur consequuntur cumque error expedita facilis illum natus officia, omnis, quos, rerum vero.",
       "author": "Luigi",
-      "id": "6"
+      "id": "6",
+      "date": "2025-03-09T12:51:24.276Z"
+    }
+  ],
+  "players": [
+    {
+      "name": "Mario",
+      "id": "1"
     },
     {
-      "id": "920af5be-a876-4b83-80ba-398765bad2c3",
-      "title": "Jeg er ikke en plante.",
-      "body": "Mange onde røster vil ha det til at jeg er en plante, men det er jeg ikke.",
-      "author": "Peach"
+      "name": "Luigi",
+      "id": "2"
+    },
+    {
+      "name": "Yoshi",
+      "id": "3"
+    },
+    {
+      "name": "Peach",
+      "id": "4"
+    },
+    {
+      "name": "Bowser",
+      "id": "5"
     }
   ]
 }

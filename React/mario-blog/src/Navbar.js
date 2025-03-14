@@ -5,15 +5,9 @@ const Navbar = () => {
 		<nav className="navbar">
 			<h1>Mario blog</h1>
 			<div className="links">
-				<NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')} >
-					Home
-				</NavLink>
-				<NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>
-					About Mario
-				</NavLink>
-				<NavLink to="/create" className={({ isActive }) => (isActive ? 'active' : '')}>
-					New blog
-				</NavLink>
+				<NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
+				<NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>About Mario</NavLink>
+				<NavLink to="/create" className={({ isActive }) => isActive ? 'active' : ''}>New blog</NavLink>
 			</div>
 		</nav>
 
