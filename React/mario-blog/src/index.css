@@ -134,22 +134,40 @@ button:hover {
     text-align: center;
 }
 .create-blog {
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-direction: column;
 }
-.create-blog input {
+.create-blog label {
+    width: 80vw;
+    max-width: 510px;
+    font-family: 'Quicksand', serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #358df1;
+}
+.create-blog input, textarea {
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #f2f2f2;
     width: 80vw;
     max-width: 500px;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    font-family: 'Quicksand', serif;
+    font-size: 14px;
+}
+.create-blog textarea {
+    min-height: 200px;
 }
 select {
+    font-family: 'Quicksand', serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    width: 35vw;
+    max-width: 200px;
     padding: 5px;
     border-radius: 6px;
     border: 1px solid #f2f2f2;

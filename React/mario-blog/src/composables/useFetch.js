@@ -7,26 +7,22 @@ const useFetch = (url) => {
 
 	useEffect(() => {
 		const abortController = new AbortController();
-		const fetchData = async () => {
-			setIsPending(true);
-			try {
-			const response = await axios.get(url, { signal: abortController.signal })
+		setIsPending(true);
+		axios.get(url, { signal: abortController.signal })
+			.then(response => {
 				if (response.status === 200) {
 					setData(response.data);
 					setIsPending(false);
-				} else {
-					throw new Error("Error fetching data");
 				}
-			} catch (err) {
+			})
+			.catch(err => {
 				if (axios.isCancel(err)) {
 					console.log("Fetch request was canceled");
 				} else {
 					setIsPending(false);
 					console.error(err);
 				}
-			}
-		}
-		fetchData();
+			})
 		return () => abortController.abort();
 	}, [url]);
 	return { data, isPending }

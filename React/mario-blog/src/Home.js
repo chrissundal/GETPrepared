@@ -11,8 +11,8 @@ const Home = () => {
 	const [num, setNum] = useState(1);
 	const [localBlogs, setLocalBlogs] = useState([]);
 	const navigate = useNavigate();
-	const getDeleteBlog = async (id) => {
-		const success = await deleteBlog(id);
+	const getDeleteBlog = (id) => {
+		const success = deleteBlog(id);
 		if(success) {
 			console.log("success deleting")
 			setLocalBlogs(localBlogs.filter((blog) => blog.id !== id).sort((a,b) => new Date(b.date) - new Date(a.date)));
