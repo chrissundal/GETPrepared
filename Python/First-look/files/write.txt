@@ -1,0 +1,5 @@
+Hello, world!
+This is a new line.
+Hello, again!
+This is another new line."The best thing in life is free!"
+"The rest of the world will not be so good as you."
