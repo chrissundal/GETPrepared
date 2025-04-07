@@ -29,3 +29,5 @@ def start_basic():
     print('Svar: Ja' if random_number == 0 else 'Svar: Nei')
     print()
     input()
+
+start_basic()
