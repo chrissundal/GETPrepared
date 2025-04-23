@@ -34,7 +34,7 @@ namespace WalkandWin
             _currentUser = _users.Find(user => user.Name == "Chris")!;
             if (_currentUser == null)
             {
-                _currentUser = new Person("Chris", 0, false,true);
+                _currentUser = new Person("Chris", 0, false,true, DateTime.Today, DateTime.Today.AddHours(11).AddMinutes(30), DateTime.Today.AddHours(12).AddMinutes(15),DateTime.Today.AddHours(12).AddMinutes(15));
                 _users.Add(_currentUser);
                 SaveToFile();
                 StatusMessage.Text = "Bruker opprettet";
@@ -76,9 +76,12 @@ namespace WalkandWin
             {
                 DoneButton.Visibility = Visibility.Collapsed;
             }
+
+            Console.WriteLine(_currentUser.DueTime);
+            Console.WriteLine(DateTime.Now);
             if (DateTime.Now >= _currentUser.DueTime)
             {
-                if (!_currentUser.IsDone && !_currentUser.NewUser)
+                if (!_currentUser.IsDone)
                 {
                     _currentUser.MinusPoints();
                     Message.Text = "Oouf kanskje i morgen!";

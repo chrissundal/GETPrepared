@@ -11,16 +11,16 @@
         public DateTime DueTime { get; private set; }
         public DateTime EndTime { get; private set; }
 
-        public Person(string name, int points, bool isDone, bool newUser)
+        public Person(string name, int points, bool isDone, bool newUser, DateTime resetDate, DateTime startTime, DateTime dueTime, DateTime endTime)
         {
             Name = name;
             Points = points;
             IsDone = isDone;
             NewUser = newUser;
-            ResetDate = DateTime.Today;
-            StartTime = DateTime.Today.AddHours(11).AddMinutes(30);
-            DueTime = DateTime.Today.AddHours(12).AddMinutes(15);
-            EndTime = DateTime.Today.AddHours(12).AddMinutes(15);
+            ResetDate = resetDate;
+            StartTime = startTime;
+            DueTime = dueTime;
+            EndTime = endTime;
         }
 
         public void NotPressed()
