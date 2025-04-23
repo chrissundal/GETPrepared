@@ -1,0 +1,48 @@
+﻿{% extends 'base.html'%}
+{% block title %}User Page{% endblock %}
+{% block content %}
+    <h1>Home</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success text-center" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if user %}
+        <p>Velkommen {{ user.username }}</p>
+        {% if user.email %}
+            <p>Du er logget inn som {{ user.email }}</p>
+        {% endif %}
+    {% endif %}
+
+
+    <div class="container col-md-6 mt-5">
+        <form action="#" method="POST">
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width: 90px">Epost</span>
+                <input type="email" class="form-control" name="email" placeholder="Skriv epost" value="{{ user.email if user.email }}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width: 90px">Fornavn</span>
+                <input type="text" class="form-control" name="firstname" placeholder="Skriv fornavn" value="{{ user.firstname if user.firstname }}">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width: 90px">Etternavn</span>
+                <input type="text" class="form-control" name="lastname" placeholder="Skriv etternavn" value="{{ user.lastname if user.lastname }}">
+            </div>
+        {% if user.admin %}
+            <div class="input-group mb-3">
+                <div class="input-group-text gap-2">
+                <input class="form-check-input mt-0" type="checkbox" value="true" {% if user.admin %}checked{% endif %}>
+                <span>Admin?</span>
+                </div>
+            </div>
+        {% endif %}
+            <div class="container d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <p>{{ test }} {{ content[0] }}</p>
+    <p>{{ text }}</p>
+    {% for n in content %}
+        {# loop.index er innebygget index starter på 1 #}
+        <p>{{ loop.index }}. {{ n }}</p>
+    {% endfor %}
+
+    {% for i in range(0,11) %}
+        {% if i % 2 == 0 %}
+            <p>Test nr {{ i }}</p>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

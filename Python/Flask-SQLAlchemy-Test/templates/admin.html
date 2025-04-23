@@ -1,0 +1,18 @@
+﻿{% extends 'base.html' %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+    <h1>Admin</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success text-center" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% if users %}
+        {% for user in users %}
+            <p>{{ loop.index }}.  Brukernavn: {{ user.username }} Email: {{ user.email if user.email else "ikke fylt inn" }} Navn: {{ user.firstname if user.firstname else "ikke fylt inn" }} {{ user.lastname }}</p>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

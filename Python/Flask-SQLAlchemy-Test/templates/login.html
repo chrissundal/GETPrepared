@@ -1,0 +1,32 @@
+﻿{% extends 'base.html'%}
+{% block title %}Login Page{% endblock %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger text-center" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container col-md-4 mt-5">
+        <div class="card p-4">
+            <form class="px-4 py-3" action="#" method="POST">
+            <div class="mb-3">
+              <label class="form-label">Username</label>
+              <input type="text" class="form-control" placeholder="Username" name="nm">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" placeholder="Password" name="pw">
+            </div>
+            <div class="container d-grid w-50 mt-4">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+            </form>
+            <div class="container d-flex flex-column align-middle text-center">
+                <a class="dropdown-item" href="#">New around here? Sign up</a>
+                <a class="dropdown-item" href="#">Forgot password?</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
