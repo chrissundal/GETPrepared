@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WalkandWin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b874f5c078bbd19458f34f527a0a9c6f330711b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1595475e5a72d5dc3de23cb64fcfcbb7dad067a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("WalkandWin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WalkandWin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
