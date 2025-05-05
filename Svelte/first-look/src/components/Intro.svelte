@@ -1,4 +1,8 @@
 ﻿<script>
+	import {createEventDispatcher, onMount} from 'svelte';
+	import { v4 as uuidv4 } from 'uuid';
+	let dispatch = createEventDispatcher();
+
 	let firstNames = ['Jens','Bjarne','Marie','Lisa','Terje','Tore','Svein']
 	let lastNames = ['Hagen','Jensen','Larsen','Hansen','Knutsen']
 
@@ -21,8 +25,19 @@
 	// $: console.log(firstName) // når noe endrer firstName, vil denne logge ut det nye verdien av firstName
 	$: {
 		console.log(firstName)
-		lastName = lastNames[Math.floor(Math.random() * lastNames.length)]
+		setPerson()
 	}
+	const setPerson = () => {
+		const person = {
+			id: uuidv4(),
+			firstName,
+			lastName
+		}
+		dispatch('addPerson', person)
+    }
+	onMount(() => {
+		setPerson()
+	})
 	const getFullName = () => {
 		firstName = firstNames[Math.floor(Math.random() * firstNames.length)]
 		lastName = lastNames[Math.floor(Math.random() * lastNames.length)]

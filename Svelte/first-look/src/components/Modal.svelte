@@ -1,12 +1,18 @@
 ﻿<script>
-    export let closeModal;
+    import { selectedScam } from "./Scams.svelte";
+
+	export let isPromo = false;
+	export let togglePromo;
 </script>
 
 <main>
-    <div class="backdrop">
+<!--    on:click sender ett emit, self er event modifier -->
+    <div class="backdrop" class:promo={isPromo} on:click|self>
         <div class="modal">
-            <p>Din grand-tante fra sveits har dessverre gått bort, men gode nyheter. Du har arvet en masse penger! Eneste som trengs er at du betaler inn noe kroner i frakt! </p>
-            <button on:click={closeModal}>Lukk</button>
+            <slot name="title"></slot>
+            <p>{selectedScam()}</p>
+            <slot></slot>
+            <button on:click={togglePromo}>Bytt klasse</button>
         </div>
     </div>
 </main>
@@ -40,6 +46,10 @@ button {
 }
 button:hover {
     background: #bdbcbc;
+    color: white;
+}
+.promo .modal{
+    background: crimson;
     color: white;
 }
 </style>

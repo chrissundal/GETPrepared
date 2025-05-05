@@ -2,23 +2,38 @@
 	import Intro from "./components/Intro.svelte";
 	import Modal from "./components/Modal.svelte";
 	import { fade, fly, blur, slide } from "svelte/transition";
+	import AddPersonForm from "./components/AddPersonForm.svelte";
 	let visible = true;
 	let showModal = false;
+	let isPromo = true;
+	let selectedPerson = {};
+
 	const toggleModal = () => {
 		showModal = !showModal
     }
+	const togglePromo = () => {
+		isPromo = !isPromo
+    }
+
+
 </script>
 <main>
     <button on:click={() => visible = !visible}>Test fade</button>
     {#if visible}
         <div transition:blur>
-            <Intro />
+            <Intro on:addPerson={(e) => selectedPerson = e.detail}/>
         </div>
     {/if}
     <button class="offer" on:click={toggleModal}>Once in a lifetime mulighet</button>
     {#if showModal}
         <div transition:fade>
-            <Modal closeModal={toggleModal}/>
+<!--            <Modal closeModal={toggleModal} isPromo={isPromo} togglePromo={togglePromo}/>-->
+            <Modal on:click={toggleModal} {isPromo} {togglePromo}>
+                <AddPersonForm {toggleModal}/>
+                <div slot="title">
+                    <h3>Godt jeg fikk tak i deg {selectedPerson.firstName}!</h3>
+                </div>
+            </Modal>
         </div>
     {/if}
 </main>
