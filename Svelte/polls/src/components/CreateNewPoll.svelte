@@ -12,6 +12,7 @@
         answer2: "",
 		vote1: 0,
 		vote2: 0,
+        date: new Date().getTime() + (24 * 60 * 60 * 1000)
     };
 	let error = {
 		question: "",
@@ -47,9 +48,9 @@
 				error[input] = '';
 			}
 		} else {
-			if (newPoll[input].trim().length < 2) {
+			if (newPoll[input].trim().length < 1) {
 				valid = false;
-				error[input] = `${dict[input]} må være minst 2 tegn`;
+				error[input] = `${dict[input]} må være minst 1 tegn`;
 			} else {
 				error[input] = '';
 			}
@@ -90,6 +91,9 @@
 </RouteTransition>
 
 <style>
-
+input {
+    width: 90vw;
+    max-width: 600px;
+}
 
 </style>
